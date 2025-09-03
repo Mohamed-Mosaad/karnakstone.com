@@ -2,25 +2,357 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Karnak Stone - Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnak Stone | Egyptian Marble & Granite Exporter</title>
+    <meta name="description" content="Karnak Stone exports premium Egyptian marble and granite: blocks, slabs, tiles, and cut-to-size with finishes including polished, honed, brushed, flamed, sandblasted, bush-hammered, tumbled, and split face.">
+    <meta name="theme-color" content="#0f1216">
+    <meta property="og:title" content="Karnak Stone | Egyptian Marble & Granite Exporter">
+    <meta property="og:description" content="Premium Egyptian marble and granite. Blocks, slabs, tiles, cut-to-size. Global export.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://karnakstone.com/">
+    <meta property="og:image" content="/og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="/favicon.ico">
     <style>
+        :root {
+            --bg: #0f1216;
+            --bg-soft: #151a21;
+            --text: #e7eaee;
+            --muted: #b7bec8;
+            --accent: #d1aa67; /* premium gold */
+            --accent-2: #8f6b2c;
+            --card: #12161c;
+            --border: #232a34;
+            --shadow: 0 10px 30px rgba(0,0,0,0.35);
+            --maxw: 1200px;
+        }
+
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f4;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
         }
-        h1 {
-            font-size: 3em;
+        a { color: var(--text); text-decoration: none; }
+        a:hover { color: var(--accent); }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+        /* Header */
+        header { position: sticky; top: 0; z-index: 50; background: rgba(15,18,22,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+        .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .brand { display: flex; align-items: center; gap: 12px; font-weight: 600; letter-spacing: 0.6px; }
+        .brand-mark { width: 28px; height: 28px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); border-radius: 4px; box-shadow: var(--shadow); }
+        .nav ul { list-style: none; display: flex; gap: 22px; margin: 0; padding: 0; }
+        .nav a { color: var(--muted); font-size: 15px; }
+        .nav a.active, .nav a:hover { color: var(--accent); }
+        .cta { display: flex; gap: 12px; }
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border);
+            background: linear-gradient(180deg, #171b21, #0f1216); color: var(--text);
+            box-shadow: var(--shadow); font-weight: 600; font-size: 14px;
         }
-        p {
-            font-size: 1.2em;
+        .btn.gold { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #0b0d10; border: none; }
+
+        /* Hero */
+        .hero { position: relative; overflow: hidden; }
+        .hero::before {
+            content: "";
+            position: absolute; inset: 0;
+            background: radial-gradient(1200px 600px at 80% -10%, rgba(209,170,103,0.25), transparent 45%),
+                        radial-gradient(800px 400px at 10% 110%, rgba(143,107,44,0.22), transparent 40%),
+                        linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.65));
+            pointer-events: none;
+        }
+        .hero-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; min-height: 78vh; }
+        .hero-copy h1 { font-size: 44px; line-height: 1.15; margin: 0 0 14px; letter-spacing: 0.3px; }
+        .hero-copy p { color: var(--muted); margin: 0 0 24px; }
+        .hero-media { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); background: url('images/hero-stone.jpg') center/cover no-repeat, var(--card); min-height: 360px; }
+        .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        /* Sections */
+        section { padding: 72px 0; border-top: 1px solid var(--border); background: linear-gradient(180deg, var(--bg), var(--bg-soft)); }
+        section.alt { background: linear-gradient(180deg, var(--bg-soft), var(--bg)); }
+        .section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 28px; }
+        .section-head h2 { margin: 0; font-size: 28px; letter-spacing: 0.4px; }
+        .section-head p { margin: 6px 0 0; color: var(--muted); }
+
+        /* Cards / grids */
+        .grid { display: grid; gap: 18px; }
+        .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+        .card .media { height: 180px; background: #1a2029 center/cover no-repeat; }
+        .card .body { padding: 16px; }
+        .card h3 { margin: 0 0 6px; font-size: 18px; letter-spacing: 0.2px; }
+        .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+        /* Contact */
+        .contact { display: grid; grid-template-columns: 1.1fr 1fr; gap: 28px; }
+        .contact-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); }
+        .contact-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 12px; }
+        .muted { color: var(--muted); }
+
+        /* Footer */
+        footer { border-top: 1px solid var(--border); background: #0c0f13; padding: 28px 0; color: var(--muted); }
+        .footer-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
+        .mini { font-size: 13px; color: var(--muted); }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero-inner { grid-template-columns: 1fr; min-height: auto; padding: 36px 0; }
+            .contact { grid-template-columns: 1fr; }
+            .grid.cols-3 { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 640px) {
+            .nav ul { display: none; }
+            .grid.cols-3, .grid.cols-2 { grid-template-columns: 1fr; }
+            .hero-copy h1 { font-size: 34px; }
         }
     </style>
+    <script>
+        // Smooth scroll active state toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]').forEach(a => {
+                a.addEventListener('click', (e) => {
+                    const id = a.getAttribute('href');
+                    const target = document.querySelector(id);
+                    if (target) {
+                        e.preventDefault();
+                        window.scrollTo({ top: target.offsetTop - 60, behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Reference inspiration: pharaohsstones.com -->
+    <!-- Images hero-stone.jpg and og-image.jpg can be added later -->
+    <!-- Reference: https://pharaohsstones.com/ -->
+    
 </head>
 <body>
-    <h1>Website Under Construction</h1>
-    <p>We are working hard to bring you a new and improved website. Please check back soon!</p>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="brand-mark"></div>
+                <div>Karnak Stone</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#finishing">Finishing</a></li>
+                    <li><a href="#packing">Packing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="cta">
+                <a class="btn" href="mailto:enquire@karnakstone.com">Email</a>
+                <a class="btn gold" href="https://wa.me/201000617133" target="_blank" rel="noopener">WhatsApp 2</a>
+                <a class="btn gold" href="https://wa.me/201226610640" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="home" class="hero">
+        <div class="container hero-inner">
+            <div class="hero-copy">
+                <h1>Premium Egyptian Marble & Granite</h1>
+                <p>Exporter of authentic Egyptian stones for architecture and interiors. Blocks, slabs, tiles, and cut‑to‑size. Delivered with meticulous finishing and global logistics.</p>
+                <div class="hero-cta">
+                    <a class="btn gold" href="#products">Explore Stones</a>
+                    <a class="btn" href="#contact">Request a Quote</a>
+                </div>
+            </div>
+            <div class="hero-media" aria-label="Stone imagery placeholder"></div>
+        </div>
+    </main>
+
+    <section id="about" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <h2>About Us</h2>
+                <p class="muted">Crafted in Egypt. Trusted worldwide.</p>
+            </div>
+            <div class="grid cols-2">
+                <div class="card">
+                    <div class="body">
+                        <h3>Karnak Stone Company</h3>
+                        <p>Karnak Stone is a leading manufacturer and exporter of Egyptian marble and granite. We serve global markets with consistent quality, competitive lead times, and a curated portfolio of signature stones.</p>
+                        <p class="muted" style="margin-top:12px;">We supply blocks, slabs, tiles, and cut‑to‑size with premium finishes including polished, honed, brushed, flamed, sandblasted, bush‑hammered, tumbled, and split face.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="body">
+                        <h3>Why Karnak</h3>
+                        <p>Reliable export operations, rigorous quality control, and responsive communication. Our team provides samples, technical guidance, and packing compliant with international standards.</p>
+                        <div class="contact-row">
+                            <div class="mini">Business Hours: Sun–Thu, 9:00–17:00 (EET)</div>
+                            <a class="btn" href="#contact">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <div class="section-head">
+                <h2>Products</h2>
+                <p class="muted">Marble and Granite selections in multiple formats.</p>
+            </div>
+            <div class="grid cols-3">
+                <div class="card">
+                    <div class="media" style="background-image:url('images/marble-1.jpg');"></div>
+                    <div class="body">
+                        <h3>Marble Collection</h3>
+                        <p>Classic Egyptian marbles for floors, walls, and bespoke elements. Blocks, slabs, tiles, and cut‑to‑size.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="media" style="background-image:url('images/granite-1.jpg');"></div>
+                    <div class="body">
+                        <h3>Granite Collection</h3>
+                        <p>Durable granites for exterior and high‑traffic applications with a broad palette of textures.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="finishing" class="alt">
+        <div class="container">
+            <div class="section-head">
+                <h2>Finishing</h2>
+                <p class="muted">Technical excellence across finishes for Marble and Granite.</p>
+            </div>
+            <div class="grid cols-3">
+                <div class="card"><div class="body"><h3>Polished</h3><p>High‑gloss, color‑enhancing finish suited to interiors and statement elements.</p></div></div>
+                <div class="card"><div class="body"><h3>Honed</h3><p>Matte, low‑glare surface with refined texture and elegant feel.</p></div></div>
+                <div class="card"><div class="body"><h3>Brushed</h3><p>Softened surface revealing natural movement and character.</p></div></div>
+                <div class="card"><div class="body"><h3>Flamed</h3><p>Thermal‑treated for slip resistance; ideal for exterior granite.</p></div></div>
+                <div class="card"><div class="body"><h3>Sandblasted</h3><p>Uniform, fine texture for balanced grip and tone.</p></div></div>
+                <div class="card"><div class="body"><h3>Bush‑Hammered</h3><p>Strong, rugged texture for high‑traffic or outdoor uses.</p></div></div>
+                <div class="card"><div class="body"><h3>Tumbled</h3><p>Antiqued edges and surface for heritage aesthetics.</p></div></div>
+                <div class="card"><div class="body"><h3>Split Face</h3><p>Three‑dimensional natural break revealing depth and relief.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packing">
+        <div class="container">
+            <div class="section-head">
+                <h2>Packing</h2>
+                <p class="muted">Export‑grade protection from quarry to site.</p>
+            </div>
+            <div class="grid cols-2">
+                <div class="card">
+                    <div class="body">
+                        <h3>Crating & Palletization</h3>
+                        <p>Fumigated wooden crates with internal foam and corner guards. Strapping and moisture control to comply with international shipping standards.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="body">
+                        <h3>Logistics</h3>
+                        <p>Sea freight coordination, documentation, and insurance upon request. We support FOB, CFR, and CIF terms.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="alt">
+        <div class="container contact">
+            <div>
+                <div class="section-head">
+                    <h2>Contact</h2>
+                    <p class="muted">Share your requirements for samples, quotations, and lead times.</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-row">
+                        <div>
+                            <div class="mini">Email</div>
+                            <div><a href="mailto:enquire@karnakstone.com">enquire@karnakstone.com</a></div>
+                        </div>
+                        <a class="btn" href="mailto:enquire@karnakstone.com">Send Email</a>
+                    </div>
+                    <div class="contact-row">
+                        <div>
+                            <div class="mini">WhatsApp</div>
+                            <div><a href="https://wa.me/201000617133" target="_blank" rel="noopener">+20 100 061 7133</a></div>
+                        </div>
+                        <a class="btn gold" href="https://wa.me/201000617133" target="_blank" rel="noopener">Chat Now</a>
+                    </div>
+                    <div class="contact-row">
+                        <div>
+                            <div class="mini">WhatsApp</div>
+                            <div><a href="https://wa.me/201226610640" target="_blank" rel="noopener">+20 122 661 0640</a></div>
+                        </div>
+                        <a class="btn gold" href="https://wa.me/201226610640" target="_blank" rel="noopener">Chat Now</a>
+                    </div>
+                    <div class="contact-row">
+                        <div>
+                            <div class="mini">Business Hours</div>
+                            <div class="muted">Sunday–Thursday, 9:00–17:00</div>
+                        </div>
+                        <a class="btn" href="#home">Back to Top</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="card" style="height:100%;">
+                    <div class="body">
+                        <h3>Request a Quote</h3>
+                        <p class="muted">Send sizes, finish, and quantities. We will respond within 24–48 hours.</p>
+                        <form action="mailto:enquire@karnakstone.com" method="GET">
+                            <div class="mini">Your Name</div>
+                            <input name="subject" placeholder="Name / Company" style="width:100%;margin:6px 0 10px;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);">
+                            <div class="mini">Message</div>
+                            <textarea name="body" placeholder="Product, finish, sizes, quantities, destination port" rows="6" style="width:100%;margin:6px 0 10px;padding:10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);"></textarea>
+                            <button type="submit" class="btn gold">Email Us</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <div class="brand" style="margin-bottom:8px;">
+                    <div class="brand-mark"></div>
+                    <div>Karnak Stone</div>
+                </div>
+                <div class="mini">Egyptian Marble & Granite Exporter</div>
+            </div>
+            <div>
+                <div class="mini" style="margin-bottom:6px;">Quick Links</div>
+                <div class="mini"><a href="#about">About Us</a></div>
+                <div class="mini"><a href="#products">Products</a></div>
+                <div class="mini"><a href="#finishing">Finishing</a></div>
+                <div class="mini"><a href="#packing">Packing</a></div>
+                <div class="mini"><a href="#contact">Contact</a></div>
+            </div>
+            <div>
+                <div class="mini" style="margin-bottom:6px;">Contact</div>
+                <div class="mini"><a href="mailto:enquire@karnakstone.com">enquire@karnakstone.com</a></div>
+                <div class="mini"><a href="https://wa.me/201000617133" target="_blank" rel="noopener">WhatsApp 2</a></div>
+                <div class="mini"><a href="https://wa.me/201226610640" target="_blank" rel="noopener">WhatsApp</a></div>
+                <div class="mini">Sun–Thu, 9:00–17:00</div>
+            </div>
+        </div>
+        <div class="container" style="margin-top:18px;">
+            <div class="mini">© <span id="y"></span> Karnak Stone. All rights reserved.</div>
+        </div>
+        <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+    </footer>
 </body>
 </html>
